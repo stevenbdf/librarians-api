@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Routes
 
-require("./routes/books.routes")(app);
+require("./routes/book.routes")(app);
 
 app.listen(PORT, (req) => {
   console.log(`Server is running on port http://localhost:${PORT}/`);
