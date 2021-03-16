@@ -84,7 +84,7 @@ exports.delete = (req, res) => {
   })
     .then(num => {
       if (num == 1) {
-        res.status(205);
+        res.sendStatus(204);
       } else {
         res.status(500).json({
           message: `Cannot delete Book with id=${id}. Maybe Book was not found!`

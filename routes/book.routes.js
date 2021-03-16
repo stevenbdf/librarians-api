@@ -1,10 +1,12 @@
+const bookValidator = require('../middlewares/validators/book.validator.js');
+
 module.exports = app => {
   const books = require("../controllers/book.controller.js");
 
   var router = require("express").Router();
 
   // Create a new Book
-  router.post("/", books.create);
+  router.post("/", bookValidator.validateCreateBook, books.create);
 
   // Retrieve all Books
   router.get("/", books.findAll);
@@ -13,7 +15,7 @@ module.exports = app => {
   router.get("/:id", books.findOne);
 
   // Update a Book with id
-  router.put("/:id", books.update);
+  router.put("/:id", bookValidator.validateUpdateBook, books.update);
 
   // Delete a Book with id
   router.delete("/:id", books.delete);
