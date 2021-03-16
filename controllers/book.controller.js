@@ -64,7 +64,7 @@ exports.update = (req, res) => {
         const data = await Book.findByPk(id);
         res.status(205).json({ data });
       } else {
-        res.json({
+        res.status(500).json({
           message: `Cannot update Book with id=${id}. Maybe Book was not found or req.body is empty!`
         });
       }
@@ -86,7 +86,7 @@ exports.delete = (req, res) => {
       if (num == 1) {
         res.status(205);
       } else {
-        res.json({
+        res.status(500).json({
           message: `Cannot delete Book with id=${id}. Maybe Book was not found!`
         });
       }
